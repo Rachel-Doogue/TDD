@@ -82,7 +82,16 @@ public class DoogueRachelTestTask3 {
         assertThrows(IllegalArgumentException.class, () -> new Rate(Kind, normalRate, reducedRate, reducedPeriod, normalPeriod));
     }
 
-    //Tests that an IllegalArgumentException is thrown when normalPeriod is invalid i.e. overlap. Lines 28 + 29 covered.
+    //Tests that an IllegalArgumentException is thrown when normalPeriod is invalid i.e. overlap. Lines 28 + 329 covered.
+    @Test
+    public void test9_1(){
+        BigDecimal normalRate = new BigDecimal(5);
+        BigDecimal reducedRate = new BigDecimal(6);
+
+        assertThrows(IllegalArgumentException.class, () -> new Rate(Kind, normalRate, reducedRate, reducedPeriod, normalPeriod));
+    }
+
+    //Tests that an IllegalArgumentException is thrown when normalPeriod is invalid i.e. overlap. Lines 31 + 32 covered.
     @Test
     public void test9(){
         ArrayList<Period> normalPeriod = new ArrayList<>(Arrays.asList(new Period(7, 10), new Period(8,12)));
@@ -90,7 +99,7 @@ public class DoogueRachelTestTask3 {
         assertThrows(IllegalArgumentException.class, () -> new Rate(Kind, normalRate, reducedRate, reducedPeriod, normalPeriod));
     }
 
-    //Tests that an IllegalArgumentException is thrown when reducedPeriod is invalid i.e. overlap. Lines 28 + 29 covered.
+    //Tests that an IllegalArgumentException is thrown when reducedPeriod is invalid i.e. overlap. Lines 31 + 32 covered.
     @Test
     public void test10(){
         ArrayList<Period> reducedPeriod = new ArrayList<>(Arrays.asList(new Period(7, 10), new Period(8,12)));
@@ -98,7 +107,7 @@ public class DoogueRachelTestTask3 {
         assertThrows(IllegalArgumentException.class, () -> new Rate(Kind, normalRate, reducedRate, reducedPeriod, normalPeriod));
     }
 
-    //Tests that an IllegalArgumentException is thrown when reducedPeriod and normalPeriod overlap one another. Line 31 + 32 covered.
+    //Tests that an IllegalArgumentException is thrown when reducedPeriod and normalPeriod overlap one another. Line 34 + 35 covered.
     @Test
     public void test11(){
         ArrayList<Period> normalPeriod = new ArrayList<>(Arrays.asList(new Period(10,12), new Period(7,10)));
