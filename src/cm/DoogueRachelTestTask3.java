@@ -26,6 +26,14 @@ public class DoogueRachelTestTask3 {
         assertEquals(new BigDecimal(16), rate.calculate(period));
     }
 
+    //Testing that the calculated rate is correct when rate is under 16
+    @Test
+    public void test1_1() {
+        Period period = new Period(2,4);
+
+        assertEquals(new BigDecimal(4), rate.calculate(period));
+    }
+
     //Tests that an IllegalArgumentException is thrown when normalPeriod is null. Lines 16 + 17 covered.
     @Test
     public void test2() {
@@ -128,14 +136,32 @@ public class DoogueRachelTestTask3 {
         assertEquals(new BigDecimal(0), rate.calculate(period));
     }
 
+    //Testing that the calculated rate when CarParkKind is "VISITOR"
+    @Test
+    public void test12_1() {
+        CarParkKind Kind = CarParkKind.VISITOR;
+        Rate rate = new Rate(Kind, normalRate, reducedRate, reducedPeriod, normalPeriod);
+
+        assertEquals(new BigDecimal(17.5), rate.calculate(period));
+    }
+
     //Testing that the calculated rate when CarParkKind is "MANAGEMENT"
     @Test
     public void test13() {
         CarParkKind Kind = CarParkKind.MANAGEMENT;
         Rate rate = new Rate(Kind, normalRate, reducedRate, reducedPeriod, normalPeriod);
-        Period period = new Period(2,6);
+        Period period = new Period(2,3);
 
         assertEquals(new BigDecimal(4), rate.calculate(period));
+    }
+
+    //Testing that the calculated rate when CarParkKind is "MANAGEMENT" rate is over 4
+    @Test
+    public void test13_1() {
+        CarParkKind Kind = CarParkKind.MANAGEMENT;
+        Rate rate = new Rate(Kind, normalRate, reducedRate, reducedPeriod, normalPeriod);
+
+        assertEquals(new BigDecimal(45), rate.calculate(period));
     }
 
     //Testing that the calculated rate when CarParkKind is "STUDENT"
@@ -145,5 +171,15 @@ public class DoogueRachelTestTask3 {
         Rate rate = new Rate(Kind, normalRate, reducedRate, reducedPeriod, normalPeriod);
 
         assertEquals(new BigDecimal(35.125), rate.calculate(period));
+    }
+
+    //Testing that the calculated rate when CarParkKind is "STUDENT" rate is under 5.5
+    @Test
+    public void test14_1() {
+        CarParkKind Kind = CarParkKind.STUDENT;
+        Rate rate = new Rate(Kind, normalRate, reducedRate, reducedPeriod, normalPeriod);
+        Period period = new Period(2, 4);
+
+        assertEquals(new BigDecimal(4), rate.calculate(period));
     }
 }
