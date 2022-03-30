@@ -23,7 +23,7 @@ public class DoogueRachelTestTask3 {
     //Testing that the calculated rate is correct
     @Test
     public void test1() {
-        assertEquals(new BigDecimal(45), rate.calculate(period));
+        assertEquals(new BigDecimal(16), rate.calculate(period));
     }
 
     //Tests that an IllegalArgumentException is thrown when normalPeriod is null. Lines 16 + 17 covered.
