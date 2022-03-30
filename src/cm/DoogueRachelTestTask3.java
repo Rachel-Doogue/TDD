@@ -113,7 +113,8 @@ public class DoogueRachelTestTask3 {
     @Test
     public void test12() {
         CarParkKind Kind = CarParkKind.VISITOR;
+        Rate rate = new Rate(Kind, normalRate, reducedRate, reducedPeriod, normalPeriod);
 
-        assertEquals(new BigDecimal(2.5), rate.calculate(period));
+        assertEquals(new BigDecimal(17.5), rate.calculate(period));
     }
 }
