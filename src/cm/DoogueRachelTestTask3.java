@@ -114,17 +114,27 @@ public class DoogueRachelTestTask3 {
     public void test12() {
         CarParkKind Kind = CarParkKind.VISITOR;
         Rate rate = new Rate(Kind, normalRate, reducedRate, reducedPeriod, normalPeriod);
+        Period period = new Period(2,12);
 
-        assertEquals(new BigDecimal(17.5), rate.calculate(period));
+        assertEquals(new BigDecimal(0), rate.calculate(period));
     }
 
-    //Testing that the calculated rate when CarParkKind is "VISITOR"
+    //Testing that the calculated rate when CarParkKind is "MANAGEMENT"
     @Test
     public void test13() {
         CarParkKind Kind = CarParkKind.MANAGEMENT;
         Rate rate = new Rate(Kind, normalRate, reducedRate, reducedPeriod, normalPeriod);
-        Period period = new Period(2,3);
+        Period period = new Period(2,6);
 
         assertEquals(new BigDecimal(4), rate.calculate(period));
+    }
+
+    //Testing that the calculated rate when CarParkKind is "STUDENT"
+    @Test
+    public void test14() {
+        CarParkKind Kind = CarParkKind.STUDENT;
+        Rate rate = new Rate(Kind, normalRate, reducedRate, reducedPeriod, normalPeriod);
+
+        assertEquals(new BigDecimal(35.2), rate.calculate(period));
     }
 }

@@ -100,20 +100,19 @@ public class Rate {
         double calculation = fee.doubleValue();
 
         if (this.kind == VISITOR) {
-            if (calculation <= 10) {
+            if (calculation <= 35) {
                 calculation = 0;
-                fee = new BigDecimal(calculation);
             }
-            else if(calculation > 10) {
+            else {
                 calculation = (calculation - 10) / 2;
-                fee = new BigDecimal(calculation);
             }
+            fee = new BigDecimal(calculation);
         }
         else if (this.kind == MANAGEMENT) {
-            if(calculation <= 4) {
+            if (calculation <= 8) {
                 calculation = 4;
-                fee = new BigDecimal(calculation);
             }
+            fee = new BigDecimal(calculation);
         }
         return (fee);
     }
