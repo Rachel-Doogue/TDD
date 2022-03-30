@@ -135,6 +135,6 @@ public class DoogueRachelTestTask3 {
         CarParkKind Kind = CarParkKind.STUDENT;
         Rate rate = new Rate(Kind, normalRate, reducedRate, reducedPeriod, normalPeriod);
 
-        assertEquals(new BigDecimal(35.2), rate.calculate(period));
+        assertEquals(new BigDecimal(35.125), rate.calculate(period));
     }
 }

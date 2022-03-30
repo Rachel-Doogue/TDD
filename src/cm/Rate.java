@@ -4,8 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static cm.CarParkKind.MANAGEMENT;
-import static cm.CarParkKind.VISITOR;
+import static cm.CarParkKind.*;
 
 public class Rate {
     private CarParkKind kind;
@@ -111,6 +110,14 @@ public class Rate {
         else if (this.kind == MANAGEMENT) {
             if (calculation <= 8) {
                 calculation = 4;
+            }
+            fee = new BigDecimal(calculation);
+        }
+        else if (this.kind == STUDENT) {
+            if (calculation >= 5.5) {
+                calculation = calculation - 5.5;
+                calculation = calculation * 0.75;
+                calculation = calculation + 5.5;
             }
             fee = new BigDecimal(calculation);
         }
