@@ -117,4 +117,14 @@ public class DoogueRachelTestTask3 {
 
         assertEquals(new BigDecimal(17.5), rate.calculate(period));
     }
+
+    //Testing that the calculated rate when CarParkKind is "VISITOR"
+    @Test
+    public void test13() {
+        CarParkKind Kind = CarParkKind.MANAGEMENT;
+        Rate rate = new Rate(Kind, normalRate, reducedRate, reducedPeriod, normalPeriod);
+        Period period = new Period(2,3);
+
+        assertEquals(new BigDecimal(4), rate.calculate(period));
+    }
 }
