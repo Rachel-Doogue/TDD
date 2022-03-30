@@ -106,4 +106,14 @@ public class DoogueRachelTestTask3 {
 
         assertThrows(IllegalArgumentException.class, () -> new Rate(Kind, normalRate, reducedRate, reducedPeriod, normalPeriod));
     }
+
+    //All tests from Task 3
+
+    //Testing that the calculated rate when CarParkKind is "VISITOR"
+    @Test
+    public void test12() {
+        CarParkKind Kind = CarParkKind.VISITOR;
+
+        assertEquals(new BigDecimal(2.5), rate.calculate(period));
+    }
 }
