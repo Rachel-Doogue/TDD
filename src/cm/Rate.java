@@ -121,6 +121,12 @@ public class Rate {
             }
             fee = new BigDecimal(calculation);
         }
+        else if (this.kind == STAFF) {
+            if (calculation >= 16) {
+                calculation = 16;
+            }
+            fee = new BigDecimal(calculation);
+        }
         return (fee);
     }
 }
